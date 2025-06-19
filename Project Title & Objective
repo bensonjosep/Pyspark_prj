@@ -1,0 +1,9 @@
+# 🛒 PySpark Mini Project – E-Commerce Data Cleaning
+
+### 🎯 Objective:
+To read, clean, transform, and store e-commerce sales data using PySpark on Databricks.
+
+This project simulates a real-world ETL process using:
+- PySpark for data cleaning
+- Delta Lake for data writing
+- Databricks for notebook execution
