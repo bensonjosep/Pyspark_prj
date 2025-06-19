@@ -1,0 +1,2 @@
+df = spark.table("ecommerce_sales_data")
+df.display()
