@@ -1,0 +1,20 @@
+# 1 Total Sales by category
+
+from pyspark.sql.functions import sum
+category_sales = df.groupBy("category").agg(sum("price").alias("total_sales"))
+category_sales.display()
+
+
+
+# 2.Top 5 Selling Products (by revenue)
+
+top_products = df.groupBy("product_name").agg(sum("price").alias("total_sales")) \
+                 .orderBy("total_sales", ascending=False) \
+                 .limit(5)
+top_products.display()
+
+
+#3 Total Revenue
+
+total_revenue = df.agg(sum("price").alias("total_revenue"))
+total_revenue.display()
