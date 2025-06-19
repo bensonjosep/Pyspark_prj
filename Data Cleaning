@@ -1,0 +1,19 @@
+df = spark.table("ecommerce_sales_data")
+
+# 1. Drop rows with NULL product_id
+df = df.dropna(subset=["product_id"])
+
+# 2. Fill NULL price with 0
+df = df.fillna({"price": 0})
+
+
+# 3. Convert 'order_date' to proper DateType
+from pyspark.sql.functions import to_date
+df = df.withColumn("order_date", to_date("order_date", "dd-MM-yyyy"))
+
+
+# 4. Remove duplicate records
+df = df.dropDuplicates()
+
+#5. Display the DF after data cleaning
+df.display()
