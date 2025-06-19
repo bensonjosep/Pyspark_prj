@@ -1,0 +1,14 @@
+#Creates a table named cleaned_ecommerce_data inside your default database
+
+df.write.format("delta").mode("overwrite").saveAsTable("cleaned_ecommerce_data")
+
+
+# we can access using Python/SQL
+
+df2 = spark.table("cleaned_ecommerce_data")
+df2.display()
+
+ or 
+
+SELECT * FROM cleaned_ecommerce_data
+
